@@ -2,19 +2,20 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from './layouts/Main'
+import Home from './views/Home'
 import About from './views/About'
 import Contact from './views/Contact'
 import Profile from './views/Profile'
 
 // Lazy Loading: will only render based on route (Dynamic Imports)
-const Home = () => import('./views/Home')
-// import Home from './views/Home'
+// const Home = () => import('./views/Home')
+// const About = () => import('./views/About')
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.MIX_APP_NAME,
+  base: 'basic',
   routes: [
     { path: '*', redirect: '/home' },
     { path: '/', redirect: '/home'},
