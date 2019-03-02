@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from './layouts/Main'
+import Login from './views/Login'
 import Home from './views/Home'
 import About from './views/About'
 import Contact from './views/Contact'
@@ -31,14 +32,14 @@ const router = new VueRouter({
         { path: 'contact', component: Contact },
         { path: 'profile', component: Profile },
       ]
-    }
-    // { 
-    //   path: '/login', 
-    //   component: Login, 
-    //   meta: { 
-    //     forVisitors: true 
-    //   }
-    // },
+    },
+    { 
+      path: '/login', 
+      component: Login, 
+      meta: { 
+        forVisitors: true 
+      }
+    },
   ]
 })
 
