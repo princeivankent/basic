@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import todos from './todos.module'
+import auth from './user.module';
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   modules: {
-    todos
+    auth
   }
 })
