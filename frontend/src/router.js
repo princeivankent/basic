@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { TokenService } from './services/storage.service'
 
 import Main from './layouts/Main'
 import Login from './views/Login'
@@ -43,20 +44,22 @@ const router = new VueRouter({
   ]
 })
 
-// Route Guards
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.forVisitors)) {
-//     if (Vue.auth.isAuthenticated()) {
-//       next('/courses')
-//     } 
-//     else next()
-//   } 
-//   else if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (!Vue.auth.isAuthenticated()) {
-//       next('/login')
-//     }
-//     else next()
-//   }
-// })
+// Route Guard
+router.beforeEach((to, from, next) => {
+  const forVisitors = to.matched.some(record => record.meta.forVisitors)
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const loggedIn = !!TokenService.getToken()
+
+  if (forVisitors) {
+    if (loggedIn)
+      return
+    else next()
+  }
+  else if (requiresAuth) {
+    if (!loggedIn)
+      next('/login')
+    else next()
+  }
+})
 
 export default router

@@ -8,29 +8,29 @@ const REFRESH_TOKEN_KEY = 'refresh_token'
  * accessed through this instace.
 **/
 const TokenService = {
-    getToken() {
-        return localStorage.getItem(TOKEN_KEY)
-    },
+  getToken() {
+    return localStorage.getItem(TOKEN_KEY)
+  },
 
-    saveToken(accessToken) {
-        localStorage.setItem(TOKEN_KEY, accessToken)
-    },
+  saveToken(accessToken) {
+    localStorage.setItem(TOKEN_KEY, accessToken)
+  },
 
-    removeToken() {
-        localStorage.removeItem(TOKEN_KEY)
-    },
+  removeToken() {
+    localStorage.removeItem(TOKEN_KEY)
+  },
 
-    getRefreshToken() {
-        return localStorage.getItem(REFRESH_TOKEN_KEY)
-    },
+  getRefreshToken() {
+    return localStorage.getItem(REFRESH_TOKEN_KEY)
+  },
 
-    saveRefreshToken(refreshToken) {
-        localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken)
-    },
+  saveRefreshToken(refreshToken) {
+    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken)
+  },
 
-    removeRefreshToken() {
-        localStorage.removeItem(REFRESH_TOKEN_KEY)
-    }
+  removeRefreshToken() {
+    localStorage.removeItem(REFRESH_TOKEN_KEY)
+  }
 
 }
 
