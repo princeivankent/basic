@@ -5,7 +5,9 @@ import {store} from './store/index'
 import ApiService from './services/api.service'
 import { TokenService } from './services/storage.service'
 
-ApiService.init(process.env.APP_URL)
+ApiService.init(process.env.VUE_APP_URL)
+
+console.log(process.env.VUE_APP_URL)
 
 // If token exists set header
 if (TokenService.getToken()) {

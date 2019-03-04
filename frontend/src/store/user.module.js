@@ -53,7 +53,7 @@ const auth = {
   },
 
   actions: {
-    login({ commit }, payload) {
+    async login({ commit }, payload) {
       commit('loginRequest');
 
       try {
@@ -65,9 +65,8 @@ const auth = {
 
         return true
       } catch (e) {
-        if (e instanceof AuthenticationError) {
-            commit('loginError', {errorCode: e.errorCode, errorMessage: e.message})
-        }
+        if (e instanceof AuthenticationError)
+          commit('loginError', {errorCode: e.errorCode, errorMessage: e.message})
 
         return false
       }
