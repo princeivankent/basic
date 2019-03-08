@@ -45,21 +45,21 @@ const router = new VueRouter({
 })
 
 // Route Guard
-router.beforeEach((to, from, next) => {
-  const forVisitors = to.matched.some(record => record.meta.forVisitors)
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const loggedIn = !!TokenService.getToken()
+// router.beforeEach((to, from, next) => {
+//   const forVisitors = to.matched.some(record => record.meta.forVisitors)
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+//   const loggedIn = !!TokenService.getToken()
 
-  if (forVisitors) {
-    if (loggedIn)
-      return
-    else next()
-  }
-  else if (requiresAuth) {
-    if (!loggedIn)
-      next('/login')
-    else next()
-  }
-})
+//   if (forVisitors) {
+//     if (loggedIn)
+//       return
+//     else next()
+//   }
+//   else if (requiresAuth) {
+//     if (!loggedIn)
+//       next('/login')
+//     else next()
+//   }
+// })
 
 export default router
