@@ -21,19 +21,19 @@ const UserService = {
   login: async function(email, password) {
     const requestData = {
       method: 'POST',
-      url: "/oauth/token/",
+      url: "/api/login",
       data: {
         grant_type: 'password',
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET,
-        username: email,
+        client_id: process.env.VUE_CLIENT_ID,
+        client_secret: process.env.VUE_CLIENT_SECRET,
+        email: email,
         password: password
       }
     }
 
     try {
       const response = await ApiService.customRequest(requestData)
-      
+
       TokenService.saveToken(response.data.access_token)
       TokenService.saveRefreshToken(response.data.refresh_token)
       ApiService.setHeader()

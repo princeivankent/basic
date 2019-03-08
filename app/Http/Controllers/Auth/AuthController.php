@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
 use App\User;
 
 class AuthController extends Controller
@@ -20,5 +19,32 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Successfully created user!'
         ], 201);
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = request(['email', 'password']);
+
+        $http = new \GuzzleHttp\Client;
+        try {
+            $response = $http->post(config('app.url') . '/oauth/token', [
+                'form_params' => [
+                    'grant_type'    => 'password',
+                    'client_id'     => 2,
+                    'client_secret' => 'yU8dtgifHJOlGv85f5puivofZs4LNclTsgUPEu3O',
+                    'username'      => $credentials['email'],
+                    'password'      => $credentials['password']
+                ],
+            ]);
+            return json_decode((string) $response->getBody(), true);
+        } 
+        catch (\GuzzleHttp\Exception\BadResponseException $e) {
+            if ($e->getCode() === 400)
+                return response()->json('Invalid Request. Please enter a username or a password', $e->getCode());
+            else if ($e->getCode() === 401)
+                return response()->json('Your credentials are incorrect. Please try again', $e->getCode());
+                
+            return response()->json('Something went wrong on the server', $e->getCode());
+        }
     }
 }
