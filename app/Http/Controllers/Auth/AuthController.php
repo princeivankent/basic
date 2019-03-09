@@ -30,8 +30,8 @@ class AuthController extends Controller
             $response = $http->post(config('app.url') . '/oauth/token', [
                 'form_params' => [
                     'grant_type'    => 'password',
-                    'client_id'     => 2,
-                    'client_secret' => 'yU8dtgifHJOlGv85f5puivofZs4LNclTsgUPEu3O',
+                    'client_id'     => config('app.client_id'),
+                    'client_secret' => config('app.client_secret'),
                     'username'      => $credentials['email'],
                     'password'      => $credentials['password']
                 ],

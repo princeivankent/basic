@@ -2,6 +2,12 @@
 
 return [
 
+    /**
+     * Passport Config Keys
+     */
+    'client_id' => env('CLIENT_ID', 2),
+    'client_secret' => env('CLIENT_SECRET'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
