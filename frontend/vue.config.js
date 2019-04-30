@@ -1,7 +1,7 @@
 module.exports = {
   // Dynamic public path for dev/prod environment
-  publicPath: process.env.NODE_ENV === 'production' 
-    ? `${process.env.VUE_APP_NAME}/public` 
+  publicPath: 
+    process.env.NODE_ENV === 'production' ? `${process.env.VUE_APP_NAME}/public` 
     : `/${process.env.VUE_APP_NAME}/`,
 
   // output built static files to Laravel's public dir.

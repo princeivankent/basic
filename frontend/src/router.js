@@ -2,16 +2,20 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { TokenService } from './services/storage.service'
 
-import Main from './layouts/Main'
-import Login from './views/Login'
-import Home from './views/Home'
-import About from './views/About'
-import Contact from './views/Contact'
-import Profile from './views/Profile'
+/**
+  Lazy Loading/Code Splitting/Dynamic Components
+ */
 
-// Lazy Loading: will only render based on route (Dynamic Imports)
-// const Home = () => import('./views/Home')
-// const About = () => import('./views/About')
+import Login from '@/views/auth/Login'
+import Main from '@/layouts/Main'
+
+// const Main     = () => import(/* webpackChunkName: "main" */ './layouts/Main')
+// const Login    = () => import(/* webpackChunkName: "login" */ './views/auth/Login')
+const Register = () => import(/* webpackChunkName: "register" */ './views/auth/Register')
+const Home     = () => import(/* webpackChunkName: "home" */ './views/Home')
+const About    = () => import(/* webpackChunkName: "about" */ './views/About')
+const Contact  = () => import(/* webpackChunkName: "contact" */ './views/Contact')
+const Profile  = () => import(/* webpackChunkName: "profile" */ './views/Profile')
 
 Vue.use(VueRouter)
 
@@ -35,19 +39,26 @@ const router = new VueRouter({
       ]
     },
     { 
-      path: '/login', 
-      component: Login, 
+      path: '/login',
+      component: Login,
       meta: { 
         forVisitors: true 
       }
     },
+    {
+      path: '/register',
+      component: Register,
+      meta: {
+        forVisitors: true
+      }
+    }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   const forVisitors = to.matched.some(record => record.meta.forVisitors)
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const loggedIn = !!TokenService.getToken()
+  const loggedIn = !!TokenService.getUserInstance() && !!TokenService.getToken()
 
   if (forVisitors) {
     if (loggedIn)

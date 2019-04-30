@@ -1,13 +1,21 @@
 import ApiService from './api.service'
 import { TokenService } from './storage.service'
 
-
 class AuthenticationError extends Error {
   constructor(errorCode, message) {
     super(message)
     this.name = this.constructor.name
-    this.message = message
     this.errorCode = errorCode
+    this.message = message
+  }
+}
+
+class RegistrationError extends Error {
+  constructor(errorCode, message) {
+    super(message)
+    this.name = this.constructor.name
+    this.errorCode = errorCode
+    this.message = message
   }
 }
 
@@ -23,28 +31,57 @@ const UserService = {
       method: 'POST',
       url: "/api/login",
       data: {
-        grant_type: 'password',
-        client_id: process.env.VUE_CLIENT_ID,
+        grant_type   : 'password',
+        client_id    : process.env.VUE_CLIENT_ID,
         client_secret: process.env.VUE_CLIENT_SECRET,
-        email: email,
-        password: password
+        email        : email,
+        password     : password
       }
     }
 
     try {
       const response = await ApiService.customRequest(requestData)
 
-      TokenService.saveToken(response.data.access_token)
+      TokenService.saveUserInstance(response.data.user)
       TokenService.saveRefreshToken(response.data.refresh_token)
+      TokenService.saveToken(response.data.access_token)
       ApiService.setHeader()
       
       // NOTE: We haven't covered this yet in our ApiService 
       //       but don't worry about this just yet - I'll come back to it later
       // ApiService.mount401Interceptor();
 
-      return response.data.access_token
-    } catch (error) {
-      throw new AuthenticationError(error.response.status, error.response.data.detail)
+      return response.data
+    } 
+    catch (error) {
+      throw new AuthenticationError(error.response.status, error.response.data.message)
+    }
+  },
+
+  /**
+    * Register the user 
+    * 
+    * @returns status
+    * @throws RegistrationError 
+  **/
+  register: async (name, email, password) => {
+    const requestData = {
+      method: 'POST',
+      url: "/api/register",
+      data: {
+        name: name,
+        email: email,
+        password: password
+      }
+    }
+    
+    try {
+      const response = await ApiService.customRequest(requestData)
+
+      return response.data
+    } 
+    catch (error) {
+      throw new RegistrationError(error.response.status, error.response.data.message)
     }
   },
 
@@ -52,18 +89,18 @@ const UserService = {
     * Refresh the access token.
   **/
   refreshToken: async function() {
+
+    // Gets refresh token from LocalStorage
     const refreshToken = TokenService.getRefreshToken()
 
     const requestData = {
-      method: 'post',
-      url: "/o/token/",
+      method: 'POST',
+      url: "/oauth/token",
       data: {
-          grant_type: 'refresh_token',
-          refresh_token: refreshToken
-      },
-      auth: {
-          username: process.env.VUE_APP_CLIENT_ID,
-          password: process.env.VUE_APP_CLIENT_SECRET
+        grant_type   : 'refresh_token',
+        refresh_token: refreshToken,
+        client_id    : 2,
+        client_secret: '7GBP7A007eKAW3vLO7knh2FpGveBFS28fxXKktRo',
       }
     }
 
@@ -72,11 +109,13 @@ const UserService = {
 
       TokenService.saveToken(response.data.access_token)
       TokenService.saveRefreshToken(response.data.refresh_token)
+
       // Update the header in ApiService
       ApiService.setHeader()
 
       return response.data.access_token
-    } catch (error) {
+    } 
+    catch (error) {
       throw new AuthenticationError(error.response.status, error.response.data.detail)
     }
 
@@ -91,6 +130,7 @@ const UserService = {
       // Remove the token and remove Authorization header from Api Service as well 
       TokenService.removeToken()
       TokenService.removeRefreshToken()
+      TokenService.removeUserInstance()
       ApiService.removeHeader()
       
       // NOTE: Again, we'll cover the 401 Interceptor a bit later. 
@@ -100,4 +140,4 @@ const UserService = {
 
 export default UserService
 
-export { UserService, AuthenticationError }
+export { UserService, AuthenticationError, RegistrationError }

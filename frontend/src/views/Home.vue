@@ -1,5 +1,11 @@
 <template>
   <div>
-    <h1>Homes</h1>
+    <h5>Home</h5>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Home'
+}
+</script>

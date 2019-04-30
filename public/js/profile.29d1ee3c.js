@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["profile"],{c66d:function(e,n,t){"use strict";t.r(n);var r=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},l=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h1",[e._v("Profile")])])}],c={name:"Profile"},i=c,o=t("2877"),u=Object(o["a"])(i,r,l,!1,null,null,null);n["default"]=u.exports}}]);
+//# sourceMappingURL=profile.29d1ee3c.js.map

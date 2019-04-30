@@ -15,5 +15,3 @@ export default {
   components: {NavBar}
 }
 </script>
-
-<style lang="scss" src="../App.scss" />

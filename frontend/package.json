@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --open",
     "build": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
