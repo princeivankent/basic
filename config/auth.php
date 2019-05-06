@@ -37,14 +37,15 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-            'hash' => false,
+            'driver'   => 'passport',
+            // 'provider' => 'users',
+            'provider' => 'ora_users',
+            'hash'     => false,
         ],
     ],
 
@@ -68,7 +69,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model'  => App\User::class,
+        ],
+
+        'ora_users' => [
+            'driver' => 'eloquent',
+            'model'  => App\OraUser::class,
         ],
 
         // 'users' => [

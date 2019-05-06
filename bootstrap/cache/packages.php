@@ -48,4 +48,11 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'yajra/laravel-oci8' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Yajra\\Oci8\\Oci8ServiceProvider',
+    ),
+  ),
 );

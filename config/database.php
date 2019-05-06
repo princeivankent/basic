@@ -61,17 +61,17 @@ return [
 
         'oracle' => [
             'driver'         => 'oracle',
-            'service_name'   => env('DB_SERVICE_NAME', ''),
-            'host'           => env('DB_HOST', ''),
-            'port'           => env('DB_PORT', ''),
-            'database'       => env('DB_DATABASE', ''),
-            'username'       => env('DB_USERNAME', ''),
-            'password'       => env('DB_PASSWORD', ''),
-            'charset'        => env('DB_CHARSET', 'AL32UTF8'),
-            'prefix'         => env('DB_PREFIX', ''),
-            'prefix_schema'  => env('DB_SCHEMA_PREFIX', ''),
-            'edition'        => env('DB_EDITION', 'ora$base'),
-            'server_version' => env('DB_SERVER_VERSION', '11g'),
+            'service_name'   => env('DB_ORA_SERVICE_NAME', ''),
+            'host'           => env('DB_ORA_HOST', ''),
+            'port'           => env('DB_ORA_PORT', ''),
+            'database'       => env('DB_ORA_DATABASE', ''),
+            'username'       => env('DB_ORA_USERNAME', ''),
+            'password'       => env('DB_ORA_PASSWORD', ''),
+            'charset'        => env('DB_ORA_CHARSET', 'AL32UTF8'),
+            'prefix'         => env('DB_ORA_PREFIX', ''),
+            'prefix_schema'  => env('DB_ORA_SCHEMA_PREFIX', ''),
+            'edition'        => env('DB_ORA_EDITION', 'ora$base'),
+            'server_version' => env('DB_ORA_SERVER_VERSION', '11g'),
         ],
 
         'pgsql' => [

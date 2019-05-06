@@ -26,7 +26,7 @@ const UserService = {
     * @returns access_token
     * @throws AuthenticationError 
   **/
-  login: async function(email, password) {
+  login: async function(username, password) {
     const requestData = {
       method: 'POST',
       url: "/api/login",
@@ -34,7 +34,7 @@ const UserService = {
         grant_type   : 'password',
         client_id    : process.env.VUE_CLIENT_ID,
         client_secret: process.env.VUE_CLIENT_SECRET,
-        email        : email,
+        username     : username,
         password     : password
       }
     }
@@ -70,7 +70,7 @@ const UserService = {
       url: "/api/register",
       data: {
         name: name,
-        email: email,
+        username: username,
         password: password
       }
     }

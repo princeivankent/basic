@@ -80,7 +80,7 @@ const login = {
       commit('loginRequest');
 
       try {
-        const response = await UserService.login(payload.email, payload.password);
+        const response = await UserService.login(payload.username, payload.password);
         commit('loginSuccess', response)
 
         // Redirect the user to the page he first tried to visit or to the home view

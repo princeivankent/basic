@@ -36,3 +36,352 @@
 #30 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #31 {main}
 "} 
+[2019-04-30 15:08:19] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2019-04-30 15:10:12] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 16
+Statement     : create sequence users_id_seq minvalue 1  start with 1 increment by 1 
+Bindings      : []
+ (SQL: create sequence users_id_seq minvalue 1  start with 1 increment by 1 ) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 16
+Statement     : create sequence users_id_seq minvalue 1  start with 1 increment by 1 
+Bindings      : []
+ (SQL: create sequence users_id_seq minvalue 1  start with 1 increment by 1 ) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 16
+Statement     : create sequence users_id_seq minvalue 1  start with 1 increment by 1 
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create sequence...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create sequence...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\Sequence.php(46): Illuminate\\Database\\Connection->statement('create sequence...')
+#3 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleAutoIncrementHelper.php(59): Yajra\\Oci8\\Schema\\Sequence->create('users_id_seq', 1, '')
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(50): Yajra\\Oci8\\Schema\\OracleAutoIncrementHelper->createAutoIncrementObjects(Object(Yajra\\Oci8\\Schema\\OracleBlueprint), 'users')
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2019-04-30 15:16:25] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2019-04-30 15:16:33] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2019-04-30 15:18:38] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2019-04-30 15:25:01] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(198): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\RefreshCommand.php(60): Illuminate\\Console\\Command->call('migrate', Array)
+#24 [internal function]: Illuminate\\Database\\Console\\Migrations\\RefreshCommand->handle()
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#28 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#29 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#30 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\RefreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 {main}
+"} 
+[2019-04-30 15:27:53] local.ERROR: Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, "PASSWORD" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ (SQL: create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )) at C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664, Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception(code: 955): Error Code    : 955
+Error Message : ORA-00955: name is already used by an existing object
+Position      : 13
+Statement     : create table users ( id number(19,0) not null, name varchar2(50) not null, email varchar2(191) not null, email_verified_at timestamp null, \"PASSWORD\" varchar2(191) not null, remember_token varchar2(100) null, created_at timestamp null, updated_at timestamp null, constraint users_id_pk primary key ( id ) )
+Bindings      : []
+ at C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-pdo-via-oci8\\src\\Pdo\\Oci8\\Statement.php:182)
+[stacktrace]
+#0 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback('create table us...', Array, Object(Closure))
+#1 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run('create table us...', Array, Object(Closure))
+#2 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(97): Illuminate\\Database\\Connection->statement('create table us...')
+#3 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(264): Illuminate\\Database\\Schema\\Blueprint->build(Object(Yajra\\Oci8\\Oci8Connection), Object(Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar))
+#4 C:\\wamp64\\www\\basic\\vendor\\yajra\\laravel-oci8\\src\\Oci8\\Schema\\OracleBuilder.php(46): Illuminate\\Database\\Schema\\Builder->build(Object(Yajra\\Oci8\\Schema\\OracleBlueprint))
+#5 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Yajra\\Oci8\\Schema\\OracleBuilder->create('users', Object(Closure))
+#6 C:\\wamp64\\www\\basic\\database\\migrations\\2014_10_12_000000_create_users_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(360): CreateUsersTable->up()
+#8 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Concerns\\ManagesTransactions.php(29): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}(Object(Yajra\\Oci8\\Oci8Connection))
+#9 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(366): Illuminate\\Database\\Connection->transaction(Object(Closure))
+#10 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(178): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateUsersTable), 'up')
+#11 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(147): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\wamp64\\\\www\\\\b...', 1, false)
+#12 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(96): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#13 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(71): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#16 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#20 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#21 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(198): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\RefreshCommand.php(60): Illuminate\\Console\\Command->call('migrate', Array)
+#24 [internal function]: Illuminate\\Database\\Console\\Migrations\\RefreshCommand->handle()
+#25 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#26 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#28 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(580): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#29 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(183): Illuminate\\Container\\Container->call(Array)
+#30 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\RefreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\wamp64\\www\\basic\\vendor\\symfony\\console\\Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 C:\\wamp64\\www\\basic\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\wamp64\\www\\basic\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 {main}
+"} 

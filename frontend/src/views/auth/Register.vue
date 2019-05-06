@@ -17,13 +17,12 @@
               >
             </div>
             <div class="form-group">
-              <label>Email address</label>
+              <label>Username</label>
               <input 
-              type="email" 
+              type="text" 
               class="form-control" 
-              aria-describedby="emailHelp" 
-              placeholder="Enter email"
-              v-model="email">
+              placeholder="Username"
+              v-model="username">
             </div>
             <div class="form-group">
               <label>Password</label>
@@ -56,7 +55,7 @@ export default {
   data () {
     return {
       name: '',
-      email: '',
+      username: '',
       password: ''
     }
   },
@@ -65,7 +64,7 @@ export default {
     register () {
       this.$store.dispatch('register/register', {
         name: this.name, 
-        email: this.email, 
+        username: this.username, 
         password: this.password
       })
     }

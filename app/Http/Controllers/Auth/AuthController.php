@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
+use App\OraUser;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -13,13 +14,13 @@ class AuthController extends Controller
     {
         Validator::make($request->all(), [
             'name'     => 'required|min: 10',
-            'email'    => 'required|email|min: 10',
+            'username' => 'required|min: 10',
             'password' => 'required|min: 10'
         ])->validate();
 
         $user = new User([
             'name'     => $request->name,
-            'email'    => $request->email,
+            'username' => $request->username,
             'password' => bcrypt($request->password)
         ]);
         
@@ -30,9 +31,9 @@ class AuthController extends Controller
         ], 201);
     }
 
-    public function login(Request $request)
+    public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request(['username', 'password']);
 
         $http = new \GuzzleHttp\Client;
         try {
@@ -41,7 +42,7 @@ class AuthController extends Controller
                     'grant_type'    => 'password',
                     'client_id'     => config('app.client_id'),
                     'client_secret' => config('app.client_secret'),
-                    'username'      => $credentials['email'],
+                    'username'      => $credentials['username'],
                     'password'      => $credentials['password']
                 ],
             ]);
@@ -49,7 +50,7 @@ class AuthController extends Controller
             $data = json_decode((string) $response->getBody(), true);
             
             // Email is unique so I chose it as identifier to query User instance
-            $data['user'] = User::where(['email' => $credentials['email']])->first();
+            $data['user'] = OraUser::where(['username' => $credentials['username']])->first();
 
             return $data;
         } 

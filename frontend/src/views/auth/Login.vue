@@ -11,13 +11,12 @@
             <h3 class="text-center">Login</h3>
             <form @submit.prevent="login" novalidate>
               <div class="form-group">
-                <label>Email address</label>
+                <label>Username</label>
                 <input 
-                type="email" 
+                type="text" 
                 class="form-control" 
-                aria-describedby="emailHelp" 
-                placeholder="Enter email" 
-                v-model="form.email"
+                placeholder="Username" 
+                v-model="form.username"
                 autofocus
                 >
               </div>
@@ -66,7 +65,7 @@ export default {
   data() {
     return {
       form: {
-        email: '',
+        username: '',
         password: ''
       }
     }
@@ -75,7 +74,7 @@ export default {
   methods: {
     login () {
       this.$store.dispatch('login/login', {
-        email: this.form.email, 
+        username: this.form.username, 
         password: this.form.password
       })
     }
