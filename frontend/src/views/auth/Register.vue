@@ -37,7 +37,10 @@
                 {{ registrationError }}
               </div>
             </div>
-            <button class="btn btn-success btn-block">Submit</button>
+            <button class="btn btn-success btn-block">
+              <span v-if="$store.state.register.registration">Processing...</span>
+              <span v-else>Submit</span>
+            </button>
           </form>
         </div>
       </div>
@@ -67,6 +70,12 @@ export default {
         username: this.username, 
         password: this.password
       })
+
+      if (!this.$store.state.register.registration) {
+        this.name = ''
+        this.username = ''
+        this.password = ''
+      }
     }
   }
 }

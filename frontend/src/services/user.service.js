@@ -64,7 +64,7 @@ const UserService = {
     * @returns status
     * @throws RegistrationError 
   **/
-  register: async (name, email, password) => {
+  register: async (name, username, password) => {
     const requestData = {
       method: 'POST',
       url: "/api/register",

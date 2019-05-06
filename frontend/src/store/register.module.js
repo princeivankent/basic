@@ -30,8 +30,10 @@ const register = {
 
   actions: {
     async register ({commit}, payload) {
+      commit('registrationRequest')
+      
       try {
-        await UserService.register(payload.name, payload.email, payload.password);
+        await UserService.register(payload.name, payload.username, payload.password);
         commit('registrationSuccess')
 
         return true
