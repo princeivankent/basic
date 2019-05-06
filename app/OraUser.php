@@ -19,6 +19,7 @@ class OraUser extends Authenticatable
 
     public function findForPassport($username)
     {
+        // $this refers to Model
         return $this->where('username', $username)->first();
     }
 }
